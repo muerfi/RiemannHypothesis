@@ -111,7 +111,7 @@ The Riemann Hypothesis, proposed by Bernhard Riemann in 1859, conjectures that a
   - Install Python: [https://www.python.org/downloads/](https://www.python.org/downloads/)
   - Install required libraries:
     ```bash
-    pip install numpy matplotlib mpmath
+    pip install -r requirements.txt
 
   ## How to Use This Repository ?
 1. **Clone the repository** :
