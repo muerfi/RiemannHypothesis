@@ -55,3 +55,9 @@ The Riemann Hypothesis, proposed by Bernhard Riemann in 1859, conjectures that a
   - Install required libraries:
     ```bash
     pip install numpy matplotlib mpmath
+
+  ## How to Use This Repository ?
+1. **Clone the repository** :
+   ```bash
+   git clone https://github.com/muerfi/QuantumBB84.git
+   cd RiemannHypothesisExplorer
