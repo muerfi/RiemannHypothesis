@@ -8,7 +8,7 @@ The Riemann Hypothesis, proposed by Bernhard Riemann in 1859, conjectures that a
 
 ## Features
 
-- **Educational Documentation**: A comprehensive PDF (`riemann_hypothesis.pdf`) introducing the Riemann Hypothesis, its mathematical foundations, historical context, numerical evidence, and significance. The document includes detailed sections on:
+**Educational Documentation**: A comprehensive PDF (`riemann_hypothesis.pdf`) introducing the Riemann Hypothesis, its mathematical foundations, historical context, numerical evidence, and significance. The document includes detailed sections on:
   - The Riemann zeta function and its properties.
   - Visualizations of the zeta function (magnitude and domain coloring).
   - Computation of non-trivial zeros and their distribution on the critical line.
@@ -20,28 +20,33 @@ The Riemann Hypothesis, proposed by Bernhard Riemann in 1859, conjectures that a
   - Modern approaches, including numerical computations, theoretical methods, quantum computing, and AI analysis.
   - A visually engaging section on the pair correlation of the Riemann zeros, with a plot comparing the zeros’ distribution to the Gaussian Unitary Ensemble (GUE) prediction.
 
-- **Visualizations** :
+  **Visualizations** :
   - Heatmap of the zeta function’s magnitude in the critical strip (`zeta_magnitude.png`).
   - Domain coloring of the zeta function in the complex plane (`domain_coloring.png`).
   - Plot of the first 10 non-trivial zeros on the critical line (`zeros_critical_line.png`).
   - Comparison of the prime counting function \( \pi(x) \) with its approximation \( \text{Li}(x) \) (`prime_counting.png`).
   - Pair correlation of the Riemann zeros compared to the GUE prediction (`pair_correlation.png`), generated using a Python script.
+  - Animation of the zeta function’s magnitude along the critical strip (`zeta_animation.gif`), showing how \( |ζ(0.5 + it)| \) changes with \( t \).
+  - Interactive dashboard for exploring visualizations, including adjustable parameters for the number of zeros plotted.
 
-- **Zero Computations** :
+  **Zero Computations** :
   - Python scripts in the PDF to compute the Riemann zeta function and its non-trivial zeros using the `mpmath` library.
 
-- **Prime Number Simulations** :
+  **Prime Number Simulations** :
   - Detailed section in the PDF on the connection between the Riemann Hypothesis and prime number distribution, with a visualization (`prime_counting.png`).
 
-- **Quantum Connections** :
+  **Quantum Connections** :
   - In-depth exploration of the Riemann Hypothesis’s links to quantum physics, including the Hilbert-Pólya conjecture, quantum chaos, spectral theory, and quantum computing.
   - Pair correlation analysis showing the similarity between the Riemann zeros and quantum chaotic systems.
 
-- **Theoretical Approaches** :
+  **Theoretical Approaches** :
   - Discussion of modern theoretical methods, such as the Selberg trace formula, L-functions, and the de Bruijn-Newman constant.
 
-- **AI Analysis** :
+  **AI Analysis** :
   - Overview of AI and machine learning approaches to study the Riemann zeros, including a 2021 study by Yang-Hui He and Kyu-Hwan Lee.
+
+  **Interactive Notebooks**:
+  - A Jupyter notebook (`notebooks/Explore_Riemann_Hypothesis.ipynb`) for interactive exploration of the Riemann Hypothesis, including computing zeros, visualizing the zeta function, and analyzing prime distributions.
 
 ## Repository Structure
 
@@ -99,9 +104,20 @@ The Riemann Hypothesis, proposed by Bernhard Riemann in 1859, conjectures that a
   - [lstm_model.py](machine_learning/lstm_model.py) : Script to train an LSTM model to predict zeros.
   - **`visualizations/`** : Visualizations of machine learning predictions.
     - [prediction_plot.py](machine_learning/visualizations/prediction_plot.py) : Script to visualize the predictions of the LSTM model.
-
-- [requirements.txt](requirements.txt) : Python dependencies for running the scripts.
-- [README.md](README.md) : Project overview, motivation, and instructions.
+    
+   **`web_calculator/`** : Web-based calculator for computing the Riemann zeta function.
+    - [app.py](web_calculator/app.py) : Flask application for the web calculator.
+    **`templates/`** : HTML templates for the web calculator.
+    - [index.html](web_calculator/templates/index.html) : Main page with the calculator form.
+    - [result.html](web_calculator/templates/result.html) : Page to display the computation result.
+    **`static/`** : Static files for the web calculator.
+    - [style.css](web_calculator/static/style.css) : CSS for styling the web calculator.
+ 
+    **`notebooks/`** : Jupyter notebooks for interactive exploration.
+  - [Explore_Riemann_Hypothesis.ipynb](notebooks/Explore_Riemann_Hypothesis.ipynb) : Interactive notebook to explore the Riemann Hypothesis through computations and visualizations.
+    
+  - [requirements.txt](requirements.txt) : Python dependencies for running the scripts.
+  - [README.md](README.md) : Project overview, motivation, and instructions.
 
 ## Prerequisites
 
