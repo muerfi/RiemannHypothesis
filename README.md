@@ -80,6 +80,7 @@ The Riemann Hypothesis, proposed by Bernhard Riemann in 1859, conjectures that a
   - [error_analysis.py](prime_distribution/error_analysis.py) : Script to analyze the error in the prime counting function approximation.
   - [prime_count.py](prime_distribution/prime_count.py) : Script to compute and plot the prime counting function \( \pi(x) \).
   - [riemann_approx.py](prime_distribution/riemann_approx.py) : Script to compute Riemann’s approximation to the prime counting function.
+  - [ulam_spiral.py](prime_distribution/ulam_spiral.py) : Script to generate an Ulam spiral visualization of prime numbers.
   - **`visualizations/`** : Visualizations of the error in prime counting approximations.
     - [prime_error_plot.py](prime_distribution/visualizations/prime_error_plot.py) : Script to plot the error between exact and approximated \( \pi(x) \).
 
