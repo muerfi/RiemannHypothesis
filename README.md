@@ -124,7 +124,7 @@ The Riemann Hypothesis, proposed by Bernhard Riemann in 1859, conjectures that a
 - **LaTeX Distribution**: To compile the PDF (`riemann_hypothesis.tex`), install a LaTeX distribution like TeX Live or MiKTeX.
   - **On Windows**: Install MiKTeX ([https://miktex.org/download](https://miktex.org/download)).
   - **On Linux/Mac**: Install TeX Live (`sudo apt install texlive-full` on Ubuntu).
-- **Python**: To run the script for generating `pair_correlation.png`, install Python 3 and the required libraries:
+- **Python**: To run the scripts for generating visualizations, install Python 3 and the required libraries:
   - Install Python: [https://www.python.org/downloads/](https://www.python.org/downloads/)
   - Install required libraries:
     ```bash
