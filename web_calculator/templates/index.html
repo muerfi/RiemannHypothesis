@@ -1,18 +1,41 @@
 <!-- web_calculator/templates/index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riemann Zeta Calculator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Load MathJax for rendering mathematical symbols -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <h1>Riemann Zeta Function Calculator</h1>
-    <form method="post">
-        <label for="sigma">Real Part (σ):</label>
-        <input type="number" step="any" name="sigma" required><br>
-        <label for="t">Imaginary Part (t):</label>
-        <input type="number" step="any" name="t" required><br>
-        <button type="submit">Compute ζ(s)</button>
-    </form>
+    <header>
+        <h1>Riemann Zeta Calculator</h1>
+        <p>Compute the Riemann zeta function \( \zeta(s) \) for a complex number \( s = \sigma + it \).</p>
+    </header>
+
+    <main>
+        <form method="post" action="/">
+            <div class="input-group">
+                <label for="sigma">Real Part (\( \sigma \)) <span class="tooltip">?</span>
+                    <div class="tooltip-text">The real part of the complex number \( s \). Typically between 0 and 1 for the critical strip.</div>
+                </label>
+                <input type="number" step="any" name="sigma" id="sigma" required placeholder="e.g., 0.5">
+            </div>
+            <div class="input-group">
+                <label for="t">Imaginary Part (\( t \)) <span class="tooltip">?</span>
+                    <div class="tooltip-text">The imaginary part of the complex number \( s \). Affects the height along the critical line.</div>
+                </label>
+                <input type="number" step="any" name="t" id="t" required placeholder="e.g., 14.134725">
+            </div>
+            <button type="submit">Compute \( \zeta(s) \)</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>Part of <a href="https://github.com/[your-username]/RiemannHypothesisExplorer">RiemannHypothesisExplorer</a> | Built with ❤️ by Murphy</p>
+    </footer>
 </body>
 </html>
