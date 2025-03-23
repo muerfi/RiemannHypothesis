@@ -18,6 +18,11 @@
 
     <main>
         <form method="post" action="/">
+            {% if error %}
+            <div class="error-message">
+                {{ error }}
+            </div>
+            {% endif %}
             <div class="input-group">
                 <label for="sigma">Real Part (\( \sigma \)) <span class="tooltip">?</span>
                     <div class="tooltip-text">The real part of the complex number \( s \). Typically between 0 and 1 for the critical strip.</div>
