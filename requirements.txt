@@ -4,3 +4,5 @@ mpmath
 plotly
 dash
 scipy
+tensorflow
+scikit-learn
