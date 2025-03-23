@@ -46,7 +46,6 @@ The Riemann Hypothesis, proposed by Bernhard Riemann in 1859, conjectures that a
 ## Repository Structure
 
 - **`docs/`** : Educational documentation and LaTeX source files for the Riemann Hypothesis guide.
-  - [riemann_hypothesis.tex](docs/riemann_hypothesis.tex) : LaTeX source file for the comprehensive PDF guide.
   - [riemann_hypothesis.pdf](docs/riemann_hypothesis.pdf) : Compiled PDF document covering the Riemann Hypothesis, its mathematical foundations, visualizations, and interdisciplinary connections.
   - [references.bib](docs/references.bib) : Bibliography file containing references cited in the PDF.
   - **`images/`** : Visualization images used in the PDF.
