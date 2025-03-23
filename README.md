@@ -59,6 +59,7 @@ The Riemann Hypothesis, proposed by Bernhard Riemann in 1859, conjectures that a
     - [zeros_critical_line.png](docs/images/zeros_critical_line.png) : Plot of the first 10 non-trivial zeros on the critical line.
     - [prime_counting.png](docs/images/prime_counting.png) : Comparison of the prime counting function \( \pi(x) \) with its approximation \( \text{Li}(x) \).
     - [pair_correlation.png](docs/images/pair_correlation.png) : Pair correlation of the Riemann zeros compared to the Gaussian Unitary Ensemble (GUE) prediction.
+    - [zeta_animation.gif](docs/images/zeta_animation.gif) : Animation of the zeta function’s magnitude along the critical strip.
   - **`scripts/`** : Python scripts for generating visualizations used in the PDF.
     - [plot_zeta_magnitude.py](docs/scripts/plot_zeta_magnitude.py) : Script to generate the heatmap of the zeta function’s magnitude.
     - [plot_zeros_critical_line.py](docs/scripts/plot_zeros_critical_line.py) : Script to plot the non-trivial zeros on the critical line.
