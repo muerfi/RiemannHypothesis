@@ -1,14 +1,32 @@
 <!-- web_calculator/templates/result.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Result</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riemann Zeta Calculator - Result</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Load MathJax for rendering mathematical symbols -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <h1>Result</h1>
-    <p>For \( s = {{ sigma }} + {{ t }}i \):</p>
-    <p>\( \zeta(s) = {{ zeta_val }} \)</p>
-    <a href="/">Back</a>
+    <header>
+        <h1>Riemann Zeta Calculator</h1>
+        <p>Result of your computation</p>
+    </header>
+
+    <main>
+        <div class="result-box">
+            <h2>Result</h2>
+            <p>For \( s = {{ sigma }} + {{ t }}i \):</p>
+            <p class="zeta-value">\( \zeta(s) = {{ zeta_val }} \)</p>
+        </div>
+        <a href="/" class="back-button">Back to Calculator</a>
+    </main>
+
+    <footer>
+        <p>Part of <a href="https://github.com/[your-username]/RiemannHypothesisExplorer">RiemannHypothesisExplorer</a> | Built with ❤️ by Murphy</p>
+    </footer>
 </body>
 </html>
