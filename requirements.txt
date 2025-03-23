@@ -6,3 +6,6 @@ dash
 scipy
 tensorflow
 scikit-learn
+flask
+jupyter
+pillow
