@@ -1,0 +1,14 @@
+<!-- web_calculator/templates/result.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Result</h1>
+    <p>For \( s = {{ sigma }} + {{ t }}i \):</p>
+    <p>\( \zeta(s) = {{ zeta_val }} \)</p>
+    <a href="/">Back</a>
+</body>
+</html>
