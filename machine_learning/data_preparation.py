@@ -26,7 +26,7 @@ imag_parts = np.array([z.imag for z in zeros])
 scaler = MinMaxScaler()
 imag_parts_normalized = scaler.fit_transform(imag_parts.reshape(-1, 1)).flatten()
 
-# Create sequences for LSTM (e.g., use the past 5 zeros to predict the next one)
+# Create sequences for LSTM (use the past 5 zeros to predict the next one)
 sequence_length = 5
 X, y = [], []
 for i in range(len(imag_parts_normalized) - sequence_length):
