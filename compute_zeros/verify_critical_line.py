@@ -5,10 +5,15 @@
 
 import re
 import numpy as np
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+RESULTS_DIR = os.path.join(BASE_DIR, "results")
+DATA_DIR = os.path.join(BASE_DIR, "data")
 
 # Read the computed zeros from the file
 computed_zeros = []
-with open("results/zeros_found.txt", "r") as f:
+with open(os.path.join(RESULTS_DIR, "zeros_found.txt"), "r") as f:
     lines = f.readlines()
     for line in lines[1:]:  # Skip the header
         match = re.search(r"s = (.+?) \+ (.+?)j", line)
@@ -33,7 +38,7 @@ else:
 
 # Compare with known zeros (first 10)
 known_zeros = []
-with open("data/known_zeros.txt", "r") as f:
+with open(os.path.join(DATA_DIR, "known_zeros.txt"), "r") as f:
     lines = f.readlines()
     for line in lines:
         match = re.search(r"s = (.+?) \+ (.+?)j", line)

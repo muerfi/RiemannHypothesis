@@ -7,10 +7,15 @@ import numpy as np
 import re
 from sklearn.preprocessing import MinMaxScaler
 import os
+import pickle
+
+# Base directory of this script
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Read the non-trivial zeros
 zeros = []
-with open("../compute_zeros/results/zeros_found.txt", "r") as f:
+zeros_file = os.path.join(BASE_DIR, "..", "compute_zeros", "results", "zeros_found.txt")
+with open(zeros_file, "r") as f:
     lines = f.readlines()
     for line in lines[1:]:  # Skip the header
         match = re.search(r"s = (.+?) \+ (.+?)j", line)
@@ -38,12 +43,15 @@ y = np.array(y)
 # Reshape X for LSTM [samples, time steps, features]
 X = X.reshape(X.shape[0], X.shape[1], 1)
 
-# Save the data
-os.makedirs("data", exist_ok=True)
-np.save("data/X.npy", X)
-np.save("data/y.npy", y)
-np.save("data/imag_parts.npy", imag_parts)
-np.save("data/scaler.npy", scaler)
+# Save the data next to this script
+data_dir = os.path.join(BASE_DIR, "data")
+os.makedirs(data_dir, exist_ok=True)
+np.save(os.path.join(data_dir, "X.npy"), X)
+np.save(os.path.join(data_dir, "y.npy"), y)
+np.save(os.path.join(data_dir, "imag_parts.npy"), imag_parts)
+# Save the scaler using pickle so it can be loaded reliably
+with open(os.path.join(data_dir, "scaler.pkl"), "wb") as f:
+    pickle.dump(scaler, f)
 
 print(f"Prepared {len(X)} sequences for training.")
 print(f"Data saved to 'data/' directory.")
