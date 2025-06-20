@@ -8,11 +8,20 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 from sklearn.metrics import mean_squared_error
 import pickle
+import os
+
+# Directory paths relative to this file
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+VIS_DIR = os.path.join(BASE_DIR, "visualizations")
+MODEL_DIR = os.path.join(BASE_DIR, "models")
 
 # Load the prepared data
-X = np.load("data/X.npy")
-y = np.load("data/y.npy")
-scaler = pickle.load(open("data/scaler.npy", "rb"))
+X = np.load(os.path.join(DATA_DIR, "X.npy"))
+y = np.load(os.path.join(DATA_DIR, "y.npy"))
+# Load the scaler saved during data preparation
+with open(os.path.join(DATA_DIR, "scaler.pkl"), "rb") as f:
+    scaler = pickle.load(f)
 
 # Split into training and testing sets (80% train, 20% test)
 train_size = int(len(X) * 0.8)
@@ -44,11 +53,13 @@ mse = mean_squared_error(y_test_inv, y_pred_inv)
 print(f"Mean Squared Error on Test Set: {mse:.4f}")
 
 # Save the predictions and actual values for visualization
-np.save("visualizations/y_test.npy", y_test_inv)
-np.save("visualizations/y_pred.npy", y_pred_inv)
+os.makedirs(VIS_DIR, exist_ok=True)
+np.save(os.path.join(VIS_DIR, "y_test.npy"), y_test_inv)
+np.save(os.path.join(VIS_DIR, "y_pred.npy"), y_pred_inv)
 
 # Save the model
-model.save("models/lstm_model.h5")
+os.makedirs(MODEL_DIR, exist_ok=True)
+model.save(os.path.join(MODEL_DIR, "lstm_model.h5"))
 
 print("Model training complete. Predictions saved to 'visualizations/' directory.")
-print("Model saved to 'models/lstm_model.h5'.")
+print(f"Model saved to '{os.path.join('models', 'lstm_model.h5')}'.")

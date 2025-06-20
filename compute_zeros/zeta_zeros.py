@@ -6,6 +6,10 @@
 from mpmath import zetazero
 import os
 
+# Path handling relative to this file
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+RESULTS_DIR = os.path.join(BASE_DIR, "results")
+
 # Number of zeros to compute
 N = 100
 
@@ -14,10 +18,10 @@ print(f"Computing the first {N} non-trivial zeros of the Riemann zeta function..
 zeros = [zetazero(k) for k in range(1, N + 1)]
 
 # Create the results directory if it doesn't exist
-os.makedirs("results", exist_ok=True)
+os.makedirs(RESULTS_DIR, exist_ok=True)
 
 # Save the zeros to a file
-with open("results/zeros_found.txt", "w") as f:
+with open(os.path.join(RESULTS_DIR, "zeros_found.txt"), "w") as f:
     f.write("First {} non-trivial zeros of the Riemann zeta function:\n".format(N))
     for i, z in enumerate(zeros, 1):
         f.write(f"Zero {i}: s = {z}\n")
@@ -27,4 +31,4 @@ print("First 10 zeros:")
 for i, z in enumerate(zeros[:10], 1):
     print(f"Zero {i}: s = {z}")
 
-print(f"All {N} zeros have been saved to 'results/zeros_found.txt'.")
+print(f"All {N} zeros have been saved to '{os.path.join('results', 'zeros_found.txt')}'.")
