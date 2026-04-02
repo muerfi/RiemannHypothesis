@@ -1,10 +1,7 @@
-"""Utility for validating numerically computed zeros of the Riemann zeta function.
+"""Validate numerically computed zeta zeros against basic reference checks.
 
-The original script was written as top-level procedural code, which made it
-hard to test and reuse.  This refactor turns the logic into small functions,
-adds helpful error messages, and exposes a tiny command line interface so the
-behaviour can be adjusted without editing the file by hand.  The improvements
-make the script safer to run in automated pipelines and easier to maintain.
+The script verifies that computed zeros stay close to Re(s)=1/2 and compares
+them with a known-zero file for quick sanity checks.
 """
 
 from __future__ import annotations
@@ -31,7 +28,7 @@ class ZeroComparison:
     difference: float
 
 
-ZERO_PATTERN = re.compile(r"s = (.+?) \+ (.+?)j")
+ZERO_PATTERN = re.compile(r"s\s*=\s*\(?\s*([+-]?\d+(?:\.\d+)?)\s*\+\s*([+-]?\d+(?:\.\d+)?)j\s*\)?")
 
 
 def parse_zeros(lines: Iterable[str]) -> List[complex]:
