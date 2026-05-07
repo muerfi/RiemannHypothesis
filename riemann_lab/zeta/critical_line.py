@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from mpmath import mpc
 
-from riemann_lab.utils.precision import DEFAULT_PRECISION
+from riemann_lab.utils.precision import DEFAULT_PRECISION, precision_context
 from riemann_lab.zeta.evaluation import evaluate_zeta
 
 
@@ -16,4 +16,6 @@ def evaluate_zeta_on_critical_line(t: float | str, precision: int = DEFAULT_PREC
     verify any interval and does not constitute evidence for a proof.
     """
 
-    return evaluate_zeta(mpc("0.5", t), precision=precision)
+    with precision_context(precision):
+        point = mpc("0.5", t)
+    return evaluate_zeta(point, precision=precision)

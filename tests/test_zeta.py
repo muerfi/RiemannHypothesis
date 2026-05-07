@@ -8,6 +8,7 @@ import pytest
 
 mpmath = pytest.importorskip("mpmath")
 
+from riemann_lab.utils.precision import precision_context
 from riemann_lab.zeta.critical_line import evaluate_zeta_on_critical_line
 from riemann_lab.zeta.evaluation import evaluate_zeta
 
@@ -27,9 +28,12 @@ def test_evaluate_zeta_real_reference_values() -> None:
 def test_evaluate_zeta_on_critical_line_matches_direct_evaluation() -> None:
     """The critical-line helper evaluates ζ(1/2 + it), not a different point."""
 
-    height = "14.134725141734693790457251983562470270784257115699"
+    with precision_context(90):
+        height = mpmath.nstr(mpmath.im(mpmath.zetazero(1)), 80)
+        direct_point = mpmath.mpc("0.5", height)
+
     via_helper = evaluate_zeta_on_critical_line(height, precision=80)
-    direct = evaluate_zeta(mpmath.mpc("0.5", height), precision=80)
+    direct = evaluate_zeta(direct_point, precision=80)
 
     assert abs(via_helper - direct) < mpmath.mpf("1e-70")
-    assert abs(via_helper) < mpmath.mpf("1e-40")
+    assert abs(via_helper) < mpmath.mpf("1e-60")
