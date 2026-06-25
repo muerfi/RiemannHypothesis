@@ -2,6 +2,8 @@
 
 _Date of audit: 2026-05-07_
 
+> **Status note (2026-05-07):** This audit is retained as historical context from an earlier repository state. The repository now includes an installable `riemann_lab/` package, `pyproject.toml`, tests, and updated user-facing documentation. Some observations below may therefore describe pre-refactor conditions rather than the current architecture.
+
 ## 1. Purpose and audit boundary
 
 This is an audit-only review of the current repository state. It does **not** implement the proposed package architecture, refactor scripts, delete files, change scientific claims outside this document, or reorganize the repository.
